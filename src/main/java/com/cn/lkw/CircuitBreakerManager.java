@@ -46,7 +46,7 @@ public class CircuitBreakerManager {
                     runner.run();
                 } catch (Exception e) {
                     circuitBreakerStrategy.addErrorMaxCurr();
-                    System.out.println(name + ":fallback run" + e.getMessage());
+                    System.out.println(name + ":run error" + e.getMessage());
                 } finally {
                     circuitBreakerStrategy.addLimitMaxCurr();
                 }
