@@ -3,9 +3,6 @@ package com.cn.lkw;
  * Created by liukangwei on 2020/9/2.
  */
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 /**
  * @author kangwei.liu
  * @create 2020-09-02 下午10:09
@@ -26,10 +23,6 @@ public class CircuitBreakerManager {
     public static final CircuitBreakerManager getInstance() {
         return CircuitBreakerManagerHolder.INSTANCE;
     }
-
-
-    private Map<String, CircuitBreakerStrategy> circuitBreakerStrategyMap = new ConcurrentHashMap<>();
-    private Object lock = new Object();
 
 
     public static void runCircuitBreaker(CircuitBreakerStrategy circuitBreakerStrategy) {
