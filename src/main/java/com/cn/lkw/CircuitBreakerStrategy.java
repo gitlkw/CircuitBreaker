@@ -50,6 +50,7 @@ public class CircuitBreakerStrategy {
             synchronized (lock) {
                 if (circuitBreakerStrategy == null) {
                     circuitBreakerStrategy = new CircuitBreakerStrategy(name, errorMax, limitMax, recoverTime, circuitBreakerRunner);
+                    circuitBreakerStrategyMap.put(name,circuitBreakerStrategy);
                 }
             }
         }
