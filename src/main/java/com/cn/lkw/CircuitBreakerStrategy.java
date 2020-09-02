@@ -100,12 +100,13 @@ public class CircuitBreakerStrategy {
     }
 
     /**
-     * 开关是否超时，超时需要恢复
+     * 开关是否:未超时，超时需要恢复
      *
      * @param oldOpenTimeCurr
      * @return
      */
-    public boolean isTimeOut(Long oldOpenTimeCurr) {
+    public boolean isNotTimeOut(Long oldOpenTimeCurr) {
+        // recoverTime == 0L 永不超时，开关开启时间 + 超时时间 > 当前时间
         return recoverTime == 0L || (oldOpenTimeCurr + recoverTime > System.currentTimeMillis());
     }
 

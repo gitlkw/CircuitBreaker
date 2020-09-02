@@ -31,7 +31,7 @@ public class CircuitBreakerManager {
         for (; ; ) {
             final Long oldOpenTimeCurr = circuitBreakerStrategy.getOpenTimeCurr();
             if (circuitBreakerStrategy.isOpen(oldOpenTimeCurr)) { // 开关处于打开状态
-                if (circuitBreakerStrategy.isTimeOut(oldOpenTimeCurr)) { // 开关如果没超时，执行fallback()
+                if (circuitBreakerStrategy.isNotTimeOut(oldOpenTimeCurr)) { // 开关如果没超时，执行fallback()
                     try {
                         runner.fallback();
                     } catch (Exception e) {
